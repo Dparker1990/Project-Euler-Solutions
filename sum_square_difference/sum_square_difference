@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+
+class Fixnum
+  def squared
+    self ** 2
+  end
+end
+
+class SumSquareDifference
+  class << self
+    def solution
+      puts result
+    end
+
+    private
+
+    def range
+      (1..100)
+    end
+
+    def sum_of_squares
+      @sum_squared ||= range.inject(0) { |sum, n| sum + n.squared }
+    end
+
+    def sum_squared
+      @sum ||= range.inject { |sum, n| sum + n }.squared
+    end
+
+    def result
+      sum_squared - sum_of_squares
+    end
+  end
+end
+
+SumSquareDifference.solution
