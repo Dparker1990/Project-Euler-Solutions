@@ -20,7 +20,11 @@ class LargePrime
     end
 
     def solve
-      (1..10001).map { generate_next_prime }.last
+      range.map { generate_next_prime }.last
+    end
+
+    def range
+      (1..10001)
     end
   end
 end
