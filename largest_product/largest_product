@@ -24,13 +24,9 @@ class LargestProduct
     end
 
     def series
-      result = []
-
-      digits.each_with_index do |v, i|
-        result << digits.slice(i, 5).map(&:to_i)
-      end
-
-      result.reject { |a| a.length < 5 }.map(&:times_are_tough)
+      digits.each_index.map do |i|
+        digits.slice(i, 5).map(&:to_i)
+      end.reject { |a| a.length < 5 }.map(&:times_are_tough)
     end
 
     def solve
