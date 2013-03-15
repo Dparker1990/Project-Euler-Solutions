@@ -19,11 +19,11 @@ class LargestProduct
     end
 
     def series
-      digits.each_cons(5).collect{ |i| i.reduce(:*) }.max
+      digits.each_cons(5).collect { |i| i.reduce(:*) }
     end
 
     def solve
-      series
+      series.max
     end
   end
 end
