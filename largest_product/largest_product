@@ -1,12 +1,7 @@
 #!/usr/bin/env ruby
 
-class Array
-  def times_are_tough
-    self.inject { |product, i| product * i }
-  end
-end
-
 class LargestProduct
+
   class << self
 
     def solution
@@ -20,13 +15,13 @@ class LargestProduct
     end
 
     def digits
-      series_string.split('')
+      @digits ||= series_string.split('').map(&:to_i)
     end
 
     def series
       digits.each_index.map do |i|
-        digits.slice(i, 5).map(&:to_i)
-      end.reject { |a| a.length < 5 }.map(&:times_are_tough)
+        digits.slice(i, 5).inject { |product, i| product * i }
+      end
     end
 
     def solve
