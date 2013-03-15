@@ -19,13 +19,11 @@ class LargestProduct
     end
 
     def series
-      digits.each_index.map do |i|
-        digits.slice(i, 5).inject { |product, i| product * i }
-      end
+      digits.each_cons(5).collect{ |i| i.reduce(:*) }.max
     end
 
     def solve
-      series.max
+      series
     end
   end
 end
