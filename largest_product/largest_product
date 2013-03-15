@@ -1,0 +1,42 @@
+#!/usr/bin/env ruby
+
+class Array
+  def times_are_tough
+    self.inject { |sum, i| sum * i }
+  end
+end
+
+class LargestProduct
+  class << self
+
+    def solution
+      puts solve
+    end
+
+    private
+
+    def series_string
+      File.read("digits.txt")
+    end
+
+    def digits
+      series_string.split.map(&:strip).join.split('')
+    end
+
+    def series
+      result = []
+
+      digits.each_with_index do |v, i|
+        result << digits.slice(i, 5).map(&:to_i)
+      end
+
+      result.reject { |a| a.length < 5 }.map(&:times_are_tough)
+    end
+
+    def solve
+      series.max
+    end
+  end
+end
+
+LargestProduct.solution
