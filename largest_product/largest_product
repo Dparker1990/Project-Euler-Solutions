@@ -20,7 +20,7 @@ class LargestProduct
     end
 
     def digits
-      series_string.split.map(&:strip).join.split('')
+      series_string.split('')
     end
 
     def series
