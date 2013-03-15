@@ -2,7 +2,7 @@
 
 class Array
   def times_are_tough
-    self.inject { |sum, i| sum * i }
+    self.inject { |product, i| product * i }
   end
 end
 
