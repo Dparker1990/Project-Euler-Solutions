@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+
+class PythagoreanTripletFinder
+  SUM = 1000
+
+  class << self
+    def solution
+      p solve
+    end
+
+    def solve
+      a_range.each do |a|
+        b_range.each do |b|
+          c = SUM - a - b
+          if c > 0 && ((a * a) + (b * b) == (c * c))
+            p "a=#{a} b=#{b} c=#{c}"
+            p a*b*c
+          end
+        end
+      end
+    end
+
+    def a_range
+      (3..(SUM / 3))
+    end
+
+    def b_range
+      (4..(SUM / 2))
+    end
+  end
+end
+
+PythagoreanTripletFinder.solution
