@@ -23,7 +23,7 @@ class SumSquareDifference
     end
 
     def sum_squared
-      @sum ||= range.inject { |sum, n| sum + n }.squared
+      @sum ||= range.reduce(:+).squared
     end
 
     def result
