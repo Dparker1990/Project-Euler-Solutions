@@ -1,0 +1,31 @@
+#!/usr/bin/env ruby
+
+class LargestProduct
+
+  class << self
+
+    def solution
+      puts solve
+    end
+
+    private
+
+    def series_string
+      File.read("digits.txt")
+    end
+
+    def digits
+      @digits ||= series_string.split('').map(&:to_i)
+    end
+
+    def series
+      digits.each_cons(5).collect { |i| i.reduce(:*) }
+    end
+
+    def solve
+      series.max
+    end
+  end
+end
+
+LargestProduct.solution

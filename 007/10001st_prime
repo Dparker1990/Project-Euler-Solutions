@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+
+require 'prime'
+
+class LargePrime
+  class << self
+
+    def solution
+      puts solve
+    end
+
+    private
+
+    def generate_next_prime
+      prime_generator.succ
+    end
+
+    def prime_generator
+      @prime_generator ||= Prime::EratosthenesGenerator.new
+    end
+
+    def solve
+      range.map { generate_next_prime }.last
+    end
+
+    def range
+      (1..10001)
+    end
+  end
+end
+
+LargePrime.solution
